@@ -3,18 +3,47 @@
 <head>
   <title>Page Title</title>
   <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  
+ <main>
+  <div id="play-area">
+
+  <div id="display">
+    
+    <div></div>
+  <img src="standIn.png" alt="rock, paper or scissors" id="playerImage">
+  <div></div>
+  <img src="standIn.png" alt="rock, paper or scissors" id="computerImage">
+    <div></div>
+  </div>
+
+  <form action="submit" id="forms">
+    <div></div>
+    <input type="text" placeholder = "type rock, paper, or scissors" name="playerchoice" id="playerChoice">
+    <div></div>
+    <button>Submit</button>
+    <div></div>
+  </form>
+
+  </div>
+
+</main>
+
   <script>
       function computerPlay(){
          //write a function that makes the computer return
-         // a random choice 
+         // a random choice
+         choices = [rock, paper,scissors];
+         return Math.random() * (4 - 0) + 0;
       }
 
       function roundPlay(playerSelection, computerSelection){
         // write a function that takes the parameters, compares them
         // then returns a string of the winner. (should be case insensitive, so player can type rock or ROCK, etc.)
         //use prompt to get input from user
+         
       }
 
       function game(){

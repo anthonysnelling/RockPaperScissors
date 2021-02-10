@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(32, 32, 32);
+}
+
+main {
+    position: relative;
+}
+
+#display {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 200px 10px 100px auto;
+    grid-template-rows: auto;
+    justify-items: center;
+}
+
+#forms {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 200px 10px 100px auto;
+    grid-template-rows: 40px;
+   }
