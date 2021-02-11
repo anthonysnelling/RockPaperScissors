@@ -20,3 +20,11 @@ main {
     grid-template-columns: auto 200px 10px 100px auto;
     grid-template-rows: 40px;
    }
+
+#playerImage {
+    border-radius: 10px;
+} 
+
+#computerImage {
+    border-radius: 10px;
+}
