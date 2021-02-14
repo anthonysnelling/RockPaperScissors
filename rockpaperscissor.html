@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Page Title</title>
+  <title>Rock Paper Scissors</title>
   <meta charset="UTF-8"/>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -10,39 +10,71 @@
  <main>
   <div id="play-area">
 
-  <div id="display">
+  <div id="selections">
     
     <div></div>
   <img src="standIn.png" alt="rock, paper or scissors" id="playerImage">
-  <div></div>
   <img src="standIn.png" alt="rock, paper or scissors" id="computerImage">
     <div></div>
   </div>
 
-  <form action="submit" id="forms">
+  <div id="choice-grid">
     <div></div>
-    <input type="text" placeholder = "type rock, paper, or scissors" name="playerchoice" id="playerChoice">
-    <div></div>
-    <button>Submit</button>
-    <div></div>
-  </form>
+    <button id="rock-button" value="rock">
+  <img src="rock.png" alt="picture of rock" class="choiceDisplay">
+      </button>
 
+      <button id="paper-button" value="paper">
+  <img src="paper.png" alt="picture of paper" class="choiceDisplay">
+       </button>
+    
+       <button id="scissors-button" value="scissors">
+  <img src="scissors.png" alt="picture of scissors" class="choiceDisplay">
+    </button>
+  <div></div>
+  </div>
   </div>
 
 </main>
 
   <script>
+    document.getElementById("rock-button").addEventListener("click", function() { playerchoice("rock"); } );
+    document.getElementById("paper-button").addEventListener("click", function() { playerchoice("paper"); } );
+    document.getElementById("scissors-button").addEventListener("click", function() { playerchoice("scissors"); } );
+
       function computerPlay(){
          //write a function that makes the computer return
          // a random choice
-         choices = [rock, paper,scissors];
-         return Math.random() * (4 - 0) + 0;
+         let compChoice = parseInt(Math.random() * (3 - 0) + 0);
+         choices = ["rock", "paper", "scissors"];
+         switch(compChoice) {
+           case 0: 
+              return "rock";
+           case 1:
+             return "paper";
+           case 2:
+             return "scissors" 
+         }
+      }
+
+      function playerchoice(valOfButton){
+        if (valOfButton == "rock"){
+          return roundPlay("rock", computerPlay());
+        }
+        if (valOfButton == "paper"){
+          return roundPlay("paper", computerPlay());
+        }
+        if (valOfButton == "scissors"){
+          return roundPlay("scissors", computerPlay());
+        }
       }
 
       function roundPlay(playerSelection, computerSelection){
         // write a function that takes the parameters, compares them
         // then returns a string of the winner. (should be case insensitive, so player can type rock or ROCK, etc.)
         //use prompt to get input from user
+        
+        //TODO: complete comparisons of player and computer selections
          
       }
 
