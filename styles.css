@@ -7,7 +7,7 @@ main {
 }
 
 #play-area {
-    margin-top: 10%;
+    margin-top: 7%;
 }
 
 #selections {
@@ -51,4 +51,15 @@ img:hover.choiceDisplay{
 button {
     background-color: transparent;
     border: none;
+}
+
+#score-board {
+    margin-top: 30px;
+    display: grid;
+    grid-template-rows: 40px 30px 30px;
+    justify-items: center;
+}
+
+h2, h3 {
+    color: white;
 }

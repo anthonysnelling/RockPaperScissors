@@ -33,11 +33,21 @@
     </button>
   <div></div>
   </div>
+
+  <div id="score-board">
+  <h2 id="player-prompt">Make a choice!</h2>
+    <h3 id="player-score-count">Your Score: 0</h3>
+    <h3 id="computer-score-count">Computer Score : 0</h3>
+  </div>
+
   </div>
 
 </main>
 
   <script>
+    let playerWins = 0;
+    let computerWins = 0;
+
     document.getElementById("rock-button").addEventListener("click", function() { playerchoice("rock"); } );
     document.getElementById("paper-button").addEventListener("click", function() { playerchoice("paper"); } );
     document.getElementById("scissors-button").addEventListener("click", function() { playerchoice("scissors"); } );
@@ -74,14 +84,40 @@
         // then returns a string of the winner. (should be case insensitive, so player can type rock or ROCK, etc.)
         //use prompt to get input from user
         
-        //TODO: complete comparisons of player and computer selections
-         
+         if(playerSelection == computerSelection){
+           return "It's a draw!";
+         }
+         else if(playerSelection == "rock" && computerSelection == "scissors"){
+            playerWins++;
+            return "You Win!";
+         }
+         else if(playerSelection == "scissors" && computerSelection == "rock"){
+           computerWins++;
+           return "You Lost!"
+         }
+         else if(playerSelection == "rock" && computerSelection == "paper"){
+            computerWins++;
+            return "You Lost!";
+         }
+         else if(playerSelection == "paper" && computerSelection == "rock"){
+           playerWins++;
+           return "You Won!";
+         }
+          else if(playerSelection == "scissors" && computerSelection == "paper"){
+            playerWins++;
+            return "You Won!";
+         }
+         else if(playerSelection == "paper" && computerSelection == "scissors"){
+           computerWins++;
+           return "You Lost!";
+         }
+
       }
 
       function game(){
         //use this function to play a 5 round game using roundPlay()
         // should keep score and report a winner or loser at the end
-
+        // TODO: update prompt in html, update scores in html, handle game win or lose condition
       }
 
   </script>
