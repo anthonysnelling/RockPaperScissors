@@ -35,7 +35,7 @@
   </div>
 
   <div id="score-board">
-  <h2 id="player-prompt">Make a choice!</h2>
+  <h2 id="player-prompt">CHOOSE! First to 3! Round 1!</h2>
     <h3 id="player-score-count">Your Score: 0</h3>
     <h3 id="computer-score-count">Computer Score : 0</h3>
   </div>
@@ -47,6 +47,8 @@
   <script>
     let playerWins = 0;
     let computerWins = 0;
+    let roundNumber = 1;
+    let gameState = 0;
 
     document.getElementById("rock-button").addEventListener("click", function() { playerchoice("rock"); } );
     document.getElementById("paper-button").addEventListener("click", function() { playerchoice("paper"); } );
@@ -56,25 +58,32 @@
          //write a function that makes the computer return
          // a random choice
          let compChoice = parseInt(Math.random() * (3 - 0) + 0);
+        //  console.log(compChoice);
          choices = ["rock", "paper", "scissors"];
          switch(compChoice) {
            case 0: 
+              document.getElementById("computerImage").src = "rock.png";
               return "rock";
            case 1:
+             document.getElementById("computerImage").src = "paper.png";
              return "paper";
            case 2:
+             document.getElementById("computerImage").src = "scissors.png";
              return "scissors" 
          }
       }
 
       function playerchoice(valOfButton){
         if (valOfButton == "rock"){
+          document.getElementById("playerImage").src = "rock.png";
           return roundPlay("rock", computerPlay());
         }
         if (valOfButton == "paper"){
+          document.getElementById("playerImage").src = "paper.png";
           return roundPlay("paper", computerPlay());
         }
         if (valOfButton == "scissors"){
+          document.getElementById("playerImage").src = "scissors.png";
           return roundPlay("scissors", computerPlay());
         }
       }
@@ -84,40 +93,50 @@
         // then returns a string of the winner. (should be case insensitive, so player can type rock or ROCK, etc.)
         //use prompt to get input from user
         
-         if(playerSelection == computerSelection){
-           return "It's a draw!";
+         if(gameState == 0){
+           if(playerSelection == computerSelection){
+           return game("It's a draw!");
          }
          else if(playerSelection == "rock" && computerSelection == "scissors"){
             playerWins++;
-            return "You Win!";
+            return game("You Win!");
          }
          else if(playerSelection == "scissors" && computerSelection == "rock"){
            computerWins++;
-           return "You Lost!"
+           return game("You Lost!");
          }
          else if(playerSelection == "rock" && computerSelection == "paper"){
             computerWins++;
-            return "You Lost!";
+            return game("You Lost!");
          }
          else if(playerSelection == "paper" && computerSelection == "rock"){
            playerWins++;
-           return "You Won!";
+           return game("You Won!");
          }
           else if(playerSelection == "scissors" && computerSelection == "paper"){
             playerWins++;
-            return "You Won!";
+            return game("You Won!");
          }
          else if(playerSelection == "paper" && computerSelection == "scissors"){
            computerWins++;
-           return "You Lost!";
+           return game("You Lost!");
          }
+        }
 
       }
 
-      function game(){
+      function game(result){
         //use this function to play a 5 round game using roundPlay()
         // should keep score and report a winner or loser at the end
-        // TODO: update prompt in html, update scores in html, handle game win or lose condition
+          roundNumber++;
+          document.getElementById("player-prompt").innerHTML = result + " round " + roundNumber;
+          if(playerWins == 3 || computerWins == 3){
+             document.getElementById("player-prompt").innerHTML = "Game Over!";
+             gameState = 1;
+          }
+          // TODO: update the player scores and computer scores
+          // allow for a reset of the game when the game is over
+          
       }
 
   </script>
