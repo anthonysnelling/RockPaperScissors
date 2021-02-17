@@ -63,3 +63,25 @@ button {
 h2, h3 {
     color: white;
 }
+
+#resetBox {
+    display: grid; 
+    grid-template-rows: auto;
+    justify-items: center;
+}
+
+#Reset {
+    color: black;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: 2px solid rgb(255, 196, 0);
+}
+
+#Reset:hover {
+    color: white;
+    background-color: red;
+    transition-duration: 0.5s;
+}
