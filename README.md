@@ -1,3 +1,3 @@
 # RockPaperScissors
 A simple game of rock paper scissors using javascript and html.
-(Work in progress)
+You can try it out here: https://anthonysnelling.github.io/RockPaperScissors/rockpaperscissor.html
